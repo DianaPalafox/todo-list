@@ -7,9 +7,14 @@ export default function initialPage() {
 
     const header = document.createElement('div')
     header.classList.add('header')
+    
+    const appearDisappearSidebar = document.createElement('button')
+    appearDisappearSidebar.classList.add('headerBtn')
+    appearDisappearSidebar.textContent = '≡'
 
     const logo = document.createElement('div')
     logo.classList.add('logo')
+    logo.textContent = "Let's do this!"
 
     const sidebar = document.createElement('div')
     sidebar.classList.add('sidebar')
@@ -104,7 +109,8 @@ export default function initialPage() {
     list.appendChild(projects)
     
     sidebar.appendChild(list)
-
+    
+    header.appendChild(appearDisappearSidebar)
     header.appendChild(logo)
 
     container.appendChild(sidebar)

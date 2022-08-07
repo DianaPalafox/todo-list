@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
 body, html {
     height: 100%;
@@ -10,24 +11,45 @@ body {
 }
 
 .container {
+    width: 100vw;
+    height: 100vh;
     box-sizing: border-box;
     display: grid; 
     grid-template-rows: 1fr 8fr;
     grid-template-columns: 300px 3fr; 
 }
 
+.headerBtn {
+    width: 30px;
+    height: 50px;
+    border-style: none;
+    background-color: #0e7490;
+    cursor: pointer;
+    font-size:xx-large;
+    color: #dbeafe;
+    margin: auto auto 0 10px;
+}
+
 .header {
+    height: 15vh;
     background-color: #0e7490;
     grid-column: 1/ span 2;
+    display: flex; 
+}
 
+.logo {
+    margin-right: auto;
+    width: 210px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Dancing Script', cursive;
 }
 
 .sidebar {
-    background-color: #FF7755;
     grid-row: 2;
-    height: 90vh;
-    background-color: #eff6ff;
-    
+    background-color: #eff6ff; 
 }
 
 .body {
@@ -44,7 +66,7 @@ body {
     height: 5px;
 }
 
-button {
+.sidebar button {
     border-radius: 10px;
     border-style: none;
     background-color: #eff6ff;
@@ -55,7 +77,7 @@ button {
     height: 35px;
 }
 
-button:hover {
+.sidebar button:hover {
     background-color: #dbeafe;
 }
 
