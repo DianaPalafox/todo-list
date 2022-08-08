@@ -31,7 +31,7 @@ body {
 }
 
 .header {
-    height: 15vh;
+    height: 13vh;
     background-color: #0e7490;
     grid-column: 1/ span 2;
     display: flex; 

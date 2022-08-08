@@ -18,6 +18,7 @@ export default function initialPage() {
 
     const sidebar = document.createElement('div')
     sidebar.classList.add('sidebar')
+    sidebar.style.display = 'block'
 
     const list = document.createElement('div')
     list.classList.add('list')
