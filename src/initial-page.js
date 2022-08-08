@@ -9,7 +9,7 @@ export default function initialPage() {
     header.classList.add('header')
     
     const appearDisappearSidebar = document.createElement('button')
-    appearDisappearSidebar.classList.add('headerBtn')
+    appearDisappearSidebar.classList.add('sidebarBtn')
     appearDisappearSidebar.textContent = '≡'
 
     const logo = document.createElement('div')
@@ -36,6 +36,7 @@ export default function initialPage() {
 
     const inboxBtn = document.createElement('button')
     inboxBtn.textContent = "Inbox"
+    inboxBtn.setAttribute('id', 'inbox')
 
     const today = document.createElement('div')
     today.classList.add('items-list')
@@ -50,6 +51,7 @@ export default function initialPage() {
 
     const todayBtn = document.createElement('button')
     todayBtn.textContent = 'Today'
+    todayBtn.setAttribute('id', 'today')
 
     const week = document.createElement('div')
     week.classList.add('items-list')
@@ -64,6 +66,7 @@ export default function initialPage() {
 
     const weekBtn = document.createElement('button')
     weekBtn.textContent = 'This week'
+    weekBtn.setAttribute('id', 'week')
 
     const projects = document.createElement('div')
     projects.classList.add('projects')
@@ -85,6 +88,7 @@ export default function initialPage() {
     const addProjectButton = document.createElement('button')
     addProjectButton.classList.add('add-project-btn')
     addProjectButton.textContent = 'Create new project'
+    addProjectButton.setAttribute('id', 'project')
 
     const body = document.createElement('div')
     body.classList.add('body')
@@ -110,11 +114,10 @@ export default function initialPage() {
     list.appendChild(projects)
     
     sidebar.appendChild(list)
-    
+    body.appendChild(sidebar)
     header.appendChild(appearDisappearSidebar)
     header.appendChild(logo)
 
-    container.appendChild(sidebar)
     container.appendChild(header)
     container.appendChild(body)
 

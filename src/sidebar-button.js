@@ -1,7 +1,7 @@
 import './style.css'
 
 export default function sidebarButton() {
-    const sidebarBtn = document.querySelector('.headerBtn')
+    const sidebarBtn = document.querySelector('.sidebarBtn')
     sidebarBtn.addEventListener('click', () => {
         if (document.querySelector('.sidebar').style.display === 'block') {
             document.querySelector('.sidebar').style.display = 'none'

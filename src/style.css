@@ -19,7 +19,7 @@ body {
     grid-template-columns: 300px 3fr; 
 }
 
-.headerBtn {
+.sidebarBtn {
     width: 30px;
     height: 50px;
     border-style: none;
@@ -50,10 +50,13 @@ body {
 .sidebar {
     grid-row: 2;
     background-color: #eff6ff; 
+    height: 87vh;
 }
 
 .body {
-    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    width: 100vw;
 }
 
 .list {
@@ -117,4 +120,22 @@ h2 {
     width: 220px;
     border-radius: 10px;
     height: 5px;
+}
+
+.container-title {
+    width: 65vw;
+    height: 10vh;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    border: 1px solid blue; 
+    width: 20vw;
+    height: 8vh;
 }
