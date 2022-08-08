@@ -5,6 +5,7 @@ function appendTitle(titleVar) {
     const content = document.querySelector('#content')
     const container = document.querySelector('.container')
     const body = document.querySelector('.body')
+    const main = document.querySelector('.main')
 
     const containerTitle = document.createElement('div')
     containerTitle.classList.add('container-title')
@@ -13,17 +14,20 @@ function appendTitle(titleVar) {
     title.textContent = titleVar
     
     containerTitle.appendChild(title)
-    body.appendChild(containerTitle)
+    main.appendChild(containerTitle)
+    body.appendChild(main)
     container.appendChild(body)
     content.appendChild(container)
 
 }
 
+export { appendTitle }
+
 function deleteTitle() {
     const containerTitle = document.querySelector('.container-title')
     if(containerTitle != null) {
-        const body = document.querySelector('.body')
-        body.removeChild(containerTitle)
+        const main = document.querySelector('.main')
+        main.removeChild(containerTitle)
     }
 }
 

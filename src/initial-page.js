@@ -92,6 +92,9 @@ export default function initialPage() {
 
     const body = document.createElement('div')
     body.classList.add('body')
+    
+    const main = document.createElement('div')
+    main.classList.add('main')
 
     inbox.appendChild(iconSvg)
     inbox.appendChild(inboxBtn)
@@ -115,6 +118,7 @@ export default function initialPage() {
     
     sidebar.appendChild(list)
     body.appendChild(sidebar)
+    body.appendChild(main)
     header.appendChild(appearDisappearSidebar)
     header.appendChild(logo)
 

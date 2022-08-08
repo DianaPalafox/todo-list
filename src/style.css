@@ -125,17 +125,39 @@ h2 {
 .container-title {
     width: 65vw;
     height: 10vh;
-    background-color: #e2e8f0;
+    background-color: #e5e7eb;
     border-radius: 10px;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto 0 auto;
     display: flex;
     align-items: center;
 }
 
 .title {
-    border: 1px solid blue; 
     width: 20vw;
     height: 8vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    color: #0e7490;
+    font-size: 2.5rem;
+    padding-left: 30px;
+}
+
+.main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-task {
+    height: 5vh;
+    width: 35vw;
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 30px auto 0 auto;
+}
+
+.add-task:hover {
+    background-color: #dbeafe;
 }
