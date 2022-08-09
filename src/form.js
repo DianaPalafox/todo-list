@@ -10,14 +10,16 @@ function addForm() {
     close.setAttribute('id', 'close')
     close.textContent = 'X'
 
-    const formDiv = document.createElement('div')
-    formDiv.classList.add('formDiv')
-    
-    const titleForm = document.createElement('h2')
+    const titleForm = document.createElement('div')
+    titleForm.classList.add('title-form')
     titleForm.textContent = 'New Task'
+
+    const formDiv = document.createElement('div')
+    formDiv.classList.add('form-div')
+    
     
     const taskTitleDiv = document.createElement('div')
-    taskTitleDiv.classList.add('taskTitle')
+    taskTitleDiv.classList.add('task-title')
 
     const taskTitleLabel= document.createElement('label')
     taskTitleLabel.htmlFor = 'title'
@@ -27,7 +29,6 @@ function addForm() {
     taskTitleInput.setAttribute("type", "text");
     taskTitleInput.setAttribute("name", "title");
     taskTitleInput.setAttribute("id", "title");
-    
 
 
     const descriptionDiv = document.createElement('div')
@@ -37,12 +38,13 @@ function addForm() {
     descriptionLabel.htmlFor = 'description'
     descriptionLabel.textContent = 'DESCRIPTION: '
 
-    const descriptionInput = document.createElement("input")
-    descriptionInput.setAttribute("type", "text");
+    const descriptionInput = document.createElement("textarea")
+    //descriptionInput.setAttribute("type", "text");
     descriptionInput.setAttribute("name", "description");
     descriptionInput.setAttribute("id", "description");
     
-
+    const datePriority = document.createElement('div')
+    datePriority.classList.add('date-priority')
 
     const dueDateDiv = document.createElement('div')
     dueDateDiv.classList.add('date')
@@ -73,7 +75,15 @@ function addForm() {
 
     const option3 = document.createElement('option')
     option3.textContent = 'High'
-    
+
+    const formButtonDiv = document.createElement('div')
+    formButtonDiv.classList.add('form-button')
+
+    const formButton = document.createElement('button')
+    formButton.textContent = 'Submit'
+    formButton.classList.add('submit')
+
+    formButtonDiv.appendChild(formButton)
     selectPriority.appendChild(option1)
     selectPriority.appendChild(option2)
     selectPriority.appendChild(option3)
@@ -89,22 +99,25 @@ function addForm() {
 
     taskTitleDiv.appendChild(taskTitleLabel)
     taskTitleDiv.appendChild(taskTitleInput)
+    
+    datePriority.appendChild(dueDateDiv)
+    datePriority.appendChild(selectPriorityDiv)
 
-    formDiv.appendChild(titleForm)
     formDiv.appendChild(taskTitleDiv)
     formDiv.appendChild(descriptionDiv)
-    formDiv.appendChild(dueDateDiv)
-    formDiv.appendChild(selectPriorityDiv)
+    formDiv.appendChild(datePriority)
+    formDiv.appendChild(formButtonDiv)
 
     form.appendChild(close)
+    form.appendChild(titleForm)
     form.appendChild(formDiv)
     main.appendChild(form)
-
 }
 
 export default function addFormButton() {
     const addTask = document.querySelector('.add-task')
     addTask.addEventListener('click', function(e) {
+        if(document.querySelector('#form') === null)
         addForm(); 
     })
 }

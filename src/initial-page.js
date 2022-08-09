@@ -1,5 +1,6 @@
 import './style.css'
 
+
 export default function initialPage() {
     
     const content = document.querySelector('#content')
@@ -72,7 +73,7 @@ export default function initialPage() {
     const projects = document.createElement('div')
     projects.classList.add('projects')
 
-    const projectsBtn = document.createElement('h2')
+    const projectsBtn = document.createElement('h3')
     projectsBtn.textContent = 'Projects'
 
     const addProject = document.createElement('div')
@@ -143,5 +144,7 @@ function addTaskButton() {
 
     main.appendChild(addTask)
 }
+
+
 
 export {addTaskButton}

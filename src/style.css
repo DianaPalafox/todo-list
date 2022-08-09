@@ -91,7 +91,7 @@ body {
     height:24px; 
 }
 
-h2 {
+h3 {
     font-size: 1.2rem;
 }
 
@@ -162,3 +162,93 @@ h2 {
 .add-task:hover {
     background-color: #dbeafe;
 }
+
+#close {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+#close:hover,
+#close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#form{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 440px;
+    height: 260px;
+    padding: 10px 20px 70px 30px;
+    border-style: none;
+    border-radius: 1em;
+    background-color: #0e7490;
+    box-shadow: 5px 5px #085f77;
+}
+
+.title-form {
+    font-size: 1.5rem; 
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+.form-div {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.task-title, .description, .date, .priority {
+    color: white;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type='text'] {
+    border-style: none;
+    width: 250px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+#description {
+    height: 100px;
+    width: 258px;
+}
+
+.date-priority {
+    display: flex; 
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.submit {
+    width: 80px;
+    background-color: #dbeafe;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 3px;
+    margin-left: 330px;
+    margin-top: 20px;
+ 
+}
+
+.submit:hover {
+    background-color: #0e7490;
+    color: #ccfbf1;
+}
+
