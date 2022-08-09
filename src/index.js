@@ -2,11 +2,14 @@ import initialPage from "./initial-page";
 import sidebarButton from "./sidebar-button"; 
 import { appendTitle } from "./append-title";
 import changeTitle from "./append-title";
-import addTaskButton from "./add-task"
+import { addTaskButton } from "./initial-page"
+import addFormButton from "./form"
 
 
 initialPage(); 
 appendTitle('Inbox')
 sidebarButton(); 
-changeTitle(); 
 addTaskButton(); 
+changeTitle(); 
+addFormButton(); 
+

@@ -1,6 +1,7 @@
 import './style.css'
 
 export default function initialPage() {
+    
     const content = document.querySelector('#content')
     const container = document.createElement('div')
     container.classList.add('container')
@@ -96,6 +97,9 @@ export default function initialPage() {
     const main = document.createElement('div')
     main.classList.add('main')
 
+    const containerTitle = document.createElement('div')
+    containerTitle.classList.add('container-title')
+
     inbox.appendChild(iconSvg)
     inbox.appendChild(inboxBtn)
     
@@ -118,6 +122,7 @@ export default function initialPage() {
     
     sidebar.appendChild(list)
     body.appendChild(sidebar)
+    main.appendChild(containerTitle)
     body.appendChild(main)
     header.appendChild(appearDisappearSidebar)
     header.appendChild(logo)
@@ -127,6 +132,16 @@ export default function initialPage() {
 
     content.appendChild(container)
 
-
-
 }
+
+function addTaskButton() {
+    const main = document.querySelector('.main')
+
+    const addTask = document.createElement('button')
+    addTask.classList.add('add-task')
+    addTask.textContent = '+ Add Task'
+
+    main.appendChild(addTask)
+}
+
+export {addTaskButton}
