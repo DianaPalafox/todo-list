@@ -114,6 +114,46 @@ function addForm() {
     main.appendChild(form)
 }
 
+function projectForm() {
+    const projectDiv = document.querySelector('.projects')
+    const projectForm = document.createElement('form')
+    projectForm.setAttribute('id', 'formProject')
+
+    const nameProject = document.createElement('div')
+    nameProject.classList.add('name-project')
+
+    const nameProjectLabel= document.createElement('label')
+    nameProjectLabel.htmlFor = 'name'
+
+    const nameProjectInput = document.createElement("input")
+    nameProjectInput.setAttribute("type", "text");
+    nameProjectInput.setAttribute("name", "name");
+    nameProjectInput.setAttribute("id", "name");
+    nameProjectInput.setAttribute("placeholder", "Enter Project Name")
+    
+    const projectFormDiv = document.createElement('div')
+    projectFormDiv.classList.add('project-form-button')
+
+    const addButton = document.createElement('button')
+    addButton.classList.add('add-button')
+    addButton.textContent = 'Add'
+
+    const cancelButton = document.createElement('button')
+    cancelButton.classList.add('cancel-button')
+    cancelButton.textContent = 'Cancel'
+
+    projectFormDiv.appendChild(addButton)
+    projectFormDiv.appendChild(cancelButton)
+
+    nameProject.appendChild(nameProjectLabel)
+    nameProject.appendChild(nameProjectInput)
+    nameProject.appendChild(projectFormDiv)
+
+    projectForm.appendChild(nameProject)
+    projectDiv.appendChild(projectForm)
+}
+
+
 export default function addFormButton() {
     const addTask = document.querySelector('.add-task')
     addTask.addEventListener('click', function(e) {
@@ -121,3 +161,13 @@ export default function addFormButton() {
         addForm(); 
     })
 }
+
+function projectButton() {
+    const project = document.querySelector('#project')
+    project.addEventListener('click', () => {
+        projectForm(); 
+
+    });
+}
+
+export {projectButton}

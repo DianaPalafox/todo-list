@@ -4,6 +4,7 @@ import { appendTitle } from "./append-title";
 import changeTitle from "./append-title";
 import { addTaskButton } from "./initial-page"
 import addFormButton from "./form"
+import {projectButton} from "./form"
 
 
 initialPage(); 
@@ -12,4 +13,5 @@ sidebarButton();
 addTaskButton(); 
 changeTitle(); 
 addFormButton(); 
+projectButton(); 
 
