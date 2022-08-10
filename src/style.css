@@ -64,13 +64,41 @@ body {
     margin: 40px 0 0 40px; 
 }
 
+#form-project {
+    display: flex;
+    justify-content: center;
+}
+
+#form-project:hover {
+    background-color: #e5e7eb;
+}
+
+#name {
+    border: 1px solid grey; 
+    width: 200px;
+}
+
+.add-button, .cancel-button {
+    width: 80px;
+    margin: 5px;  
+    background-color: #0e7490;
+    border-style: none;
+    color: white; 
+    cursor: pointer;
+}
+
+.project-form-button {
+    display: flex;
+    justify-content: center;
+}
+
 .items-list, .projects {
     padding-bottom: 30px;
     display: flex;
     height: 5px;
 }
 
-.sidebar button {
+#inbox, #today, #week, .add-project, .add-project-btn {
     border-radius: 10px;
     border-style: none;
     background-color: #eff6ff;
@@ -81,7 +109,7 @@ body {
     height: 35px;
 }
 
-.sidebar button:hover {
+#inbox:hover, #today:hover, #week:hover, .add-project-btn:hover {
     background-color: #dbeafe;
 }
 
@@ -96,13 +124,11 @@ h3 {
 }
 
 .projects {
-    border: 1px solid blue; 
     display: flex;
     flex-direction: column;
 }
 
 .add-project {
-    border: 1px solid blue; 
     margin-left: 30px;
     display: flex;
     width: 200px;

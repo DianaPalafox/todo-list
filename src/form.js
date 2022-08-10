@@ -117,7 +117,7 @@ function addForm() {
 function projectForm() {
     const projectDiv = document.querySelector('.projects')
     const projectForm = document.createElement('form')
-    projectForm.setAttribute('id', 'formProject')
+    projectForm.setAttribute('id', 'form-project')
 
     const nameProject = document.createElement('div')
     nameProject.classList.add('name-project')
@@ -156,7 +156,7 @@ function projectForm() {
 
 export default function addFormButton() {
     const addTask = document.querySelector('.add-task')
-    addTask.addEventListener('click', function(e) {
+    addTask.addEventListener('click', () => {
         if(document.querySelector('#form') === null)
         addForm(); 
     })
@@ -165,6 +165,7 @@ export default function addFormButton() {
 function projectButton() {
     const project = document.querySelector('#project')
     project.addEventListener('click', () => {
+        if(document.querySelector('#form-project') === null)
         projectForm(); 
 
     });
