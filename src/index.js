@@ -1,5 +1,5 @@
 import { initialPage, addTaskButton, appendTitle } from "./initial-page";
-import {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, addButton} from "./events"
+import {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, addButton, deleteProject} from "./events"
 
 
 initialPage(); 
@@ -12,3 +12,4 @@ projectButton();
 closeSpan(); 
 closeButton(); 
 addButton(); 
+deleteProject();

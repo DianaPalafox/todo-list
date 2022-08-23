@@ -98,7 +98,7 @@ body {
     height: 5px;
 }
 
-#inbox, #today, #week, .add-project, .add-project-btn {
+#inbox, #today, #week, .add-project, .add-project-btn, #project-name {
     border-radius: 10px;
     border-style: none;
     background-color: #eff6ff;
@@ -109,7 +109,7 @@ body {
     height: 35px;
 }
 
-#inbox:hover, #today:hover, #week:hover, .add-project-btn:hover {
+#inbox:hover, #today:hover, #week:hover, .add-project-btn:hover, #project-name:hover {
     background-color: #dbeafe;
 }
 
@@ -204,7 +204,9 @@ h3 {
 }
 
 #close:hover,
-#close:focus {
+#close:focus,
+.delete:hover
+.delete:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -280,5 +282,12 @@ input[type='text'] {
 .submit:hover {
     background-color: #0e7490;
     color: #ccfbf1;
+}
+
+.delete {
+    color: rgb(97, 97, 97); 
+    font-weight: bolder;
+    margin-left: 120px; 
+    font-size: larger;
 }
 

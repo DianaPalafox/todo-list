@@ -70,21 +70,36 @@ function closeSpan() {
 function closeButton() {
     document.addEventListener('click', function(e) {
         if(e.target.id === 'cancel') {
-            const projectDiv = document.querySelector('.projects')
-            const formProject = document.querySelector('#form-project')
-            projectDiv.removeChild(formProject) 
+            removeProjectForm()
         }
     });
+}
 
+function removeProjectForm() {
+    const projectDiv = document.querySelector('.projects')
+    const formProject = document.querySelector('#form-project')
+    projectDiv.removeChild(formProject) 
 }
 
 function addButton() {
     document.addEventListener('click', function(e) {
         if(e.target.id === 'add') {
             addProject()
+            removeProjectForm()
         }
     });    
 }
 
+function deleteProject() {
+    document.addEventListener('click', function(e) {
+        if(e.target.id === 'delete') {
+            const projectDiv = document.querySelector('.projects')
+            const projectNameDiv = document.querySelector('#project-name-div')
+            projectDiv.removeChild(projectNameDiv)
+        }
 
-export {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, addButton}
+    });
+}
+
+
+export {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, addButton, deleteProject}
