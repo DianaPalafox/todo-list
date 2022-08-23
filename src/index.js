@@ -1,10 +1,5 @@
-import initialPage from "./initial-page";
-import sidebarButton from "./sidebar-button"; 
-import { appendTitle } from "./append-title";
-import changeTitle from "./append-title";
-import { addTaskButton } from "./initial-page"
-import addFormButton from "./form"
-import {projectButton} from "./form"
+import { initialPage, addTaskButton, appendTitle } from "./initial-page";
+import {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, addButton} from "./events"
 
 
 initialPage(); 
@@ -14,4 +9,6 @@ addTaskButton();
 changeTitle(); 
 addFormButton(); 
 projectButton(); 
-
+closeSpan(); 
+closeButton(); 
+addButton(); 
