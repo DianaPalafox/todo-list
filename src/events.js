@@ -1,5 +1,5 @@
 import './style.css'
-import {addForm, projectForm, appendTitle, addProject} from './initial-page';
+import {addForm, projectForm, appendTitle} from './initial-page';
 
 
 function addFormButton() {
@@ -53,6 +53,22 @@ function changeTitle() {
             deleteTitle(); 
             appendTitle('This week');
         }
+       /* if(e.target.dataset.index === '0') {
+            const dataIndex = e.target.dataset.index 
+            console.log(dataIndex)
+            deleteTitle(); 
+            const name = document.querySelector('[data-index="0"]');
+            const text = name.textContent
+            appendTitle(text);
+        }
+        if(e.target.dataset.index === '1') {
+            const dataIndex = e.target.dataset.index 
+            console.log(dataIndex)
+            deleteTitle(); 
+            const name = document.querySelector('[data-index="1"]');
+            const text = name.textContent
+            appendTitle(text);
+        }*/
     }); 
 
 }
@@ -81,13 +97,23 @@ function removeProjectForm() {
     projectDiv.removeChild(formProject) 
 }
 
-function addButton() {
+/*function addButton() {
     document.addEventListener('click', function(e) {
         if(e.target.id === 'add') {
-            addProject()
-            removeProjectForm()
+            checkForProjectName(); 
         }
     });    
+}*/
+
+/*function checkForProjectName() {
+    let name = document.querySelector('#name').value; 
+    if(name === '') {
+        alert('The project name must be filled out')
+    }
+    else {
+        addProject()
+        removeProjectForm() 
+    }
 }
 
 function deleteProject() {
@@ -99,7 +125,7 @@ function deleteProject() {
         }
 
     });
-}
+}*/
 
 
-export {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, addButton, deleteProject}
+export {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, removeProjectForm, deleteTitle /*addButton, deleteProject*/}

@@ -90,6 +90,9 @@ import './style.css'
     addProjectButton.textContent = 'Create new project'
     addProjectButton.setAttribute('id', 'project')
 
+    const projectContainer = document.createElement('div')
+    projectContainer.classList.add('projects-container')
+
     const body = document.createElement('div')
     body.classList.add('body')
     
@@ -117,6 +120,7 @@ import './style.css'
     addProject.appendChild(iconSvg4)
     addProject.appendChild(addProjectButton)
     projects.appendChild(addProject)
+    projects.appendChild(projectContainer)
     list.appendChild(projects)
     
     sidebar.appendChild(list)
@@ -180,7 +184,6 @@ function addForm() {
     descriptionLabel.textContent = 'DESCRIPTION: '
 
     const descriptionInput = document.createElement("textarea")
-    //descriptionInput.setAttribute("type", "text");
     descriptionInput.setAttribute("name", "description");
     descriptionInput.setAttribute("id", "description");
     
@@ -306,7 +309,7 @@ function appendTitle(titleVar) {
     containerTitle.appendChild(title)
 }
 
-function addProject() {
+/*function addProject() {
     const projectDiv = document.querySelector('.projects')
     const projectNameDiv = document.createElement('div')
     projectNameDiv.setAttribute('id', 'project-name-div')
@@ -321,7 +324,8 @@ function addProject() {
     iconSvg.appendChild(iconPath);
 
     const projectName = document.createElement('button')
-    projectName.setAttribute('id', 'project-name')
+    projectName.setAttribute('data-index', `${project++}`)
+    projectName.setAttribute('id', 'project-name-btn')
     projectName.textContent = document.querySelector('#name').value;
     
     const deleteProject = document.createElement('span')
@@ -329,11 +333,11 @@ function addProject() {
     deleteProject.classList.add('delete')
     deleteProject.setAttribute('id', 'delete')
     
-    projectName.appendChild(deleteProject)
     projectNameDiv.appendChild(iconSvg)
     projectNameDiv.appendChild(projectName)
+    projectNameDiv.appendChild(deleteProject)
     projectDiv.appendChild(projectNameDiv)
 
-}
+}*/
 
-export { initialPage, addTaskButton, projectForm, addForm, appendTitle, addProject }
+export { initialPage, addTaskButton, projectForm, addForm, appendTitle /*addProject*/ }
