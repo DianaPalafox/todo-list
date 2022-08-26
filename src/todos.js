@@ -18,6 +18,7 @@ function addTodos() {
         if(e.target.id === 'submit') {
             getInfo(); 
             removeForm();  
+            deleteTodos(); 
             displayTodos();  
         }
     });          
@@ -40,12 +41,15 @@ function getInfo() {
 }
 
 function displayTodos() {
-    const main = document.querySelector('.main')
+    const content = document.querySelector('.content')
 
     myTodos.forEach(function(todo, i) {
         const todosContainer = document.createElement('div')
         todosContainer.setAttribute('data-index', `${i}`)
         todosContainer.classList.add('todos-container')
+        
+        const container1 = document.createElement('div')
+        container1.classList.add('container1')
 
         const checkboxContainer = document.createElement('div')
         checkboxContainer.classList.add('checkbox-container')
@@ -63,12 +67,15 @@ function displayTodos() {
         title.setAttribute('id', 'title-todo')
         title.textContent = `${todo.title}`
 
+        const container2 = document.createElement('div')
+        container2.classList.add('container2')
+
         const date = document.createElement('div')
         date.setAttribute('id', 'date-todo')
         date.textContent = `${todo.date}`
 
         const iconSvg =  document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        iconSvg.classList.add('iconSvg')
+        iconSvg.classList.add('iconSvg2')
         iconSvg.setAttribute('id', 'edit')
         const iconPath = document.createElementNS('http://www.w3.org/2000/svg','path');
 
@@ -78,7 +85,7 @@ function displayTodos() {
         iconSvg.appendChild(iconPath);
 
         const iconSvg2 =  document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        iconSvg2.classList.add('iconSvg')
+        iconSvg2.classList.add('iconSvg2')
         iconSvg2.setAttribute('id', 'expanse')
         const iconPath2 = document.createElementNS('http://www.w3.org/2000/svg','path');
 
@@ -88,7 +95,7 @@ function displayTodos() {
         iconSvg2.appendChild(iconPath2);
 
         const iconSvg3 =  document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        iconSvg3.classList.add('iconSvg')
+        iconSvg3.classList.add('iconSvg2')
         iconSvg3.setAttribute('id', 'priority-flag')
         const iconPath3 = document.createElementNS('http://www.w3.org/2000/svg','path');
 
@@ -98,7 +105,7 @@ function displayTodos() {
         iconSvg3.appendChild(iconPath3);
 
         const iconSvg4 =  document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        iconSvg4.classList.add('iconSvg')
+        iconSvg4.classList.add('iconSvg2')
         iconSvg4.setAttribute('id', 'priority-flag')
         const iconPath4 = document.createElementNS('http://www.w3.org/2000/svg','path');
 
@@ -111,16 +118,29 @@ function displayTodos() {
         checkboxContainer.appendChild(checkboxInput)
         checkboxContainer.appendChild(checkmark)
 
-        todosContainer.appendChild(checkboxContainer)
-        todosContainer.appendChild(title)
-        todosContainer.appendChild(date)
-        todosContainer.appendChild(iconSvg)
-        todosContainer.appendChild(iconSvg2)
-        todosContainer.appendChild(iconSvg3)
-        todosContainer.appendChild(iconSvg4)
+        container1.appendChild(checkboxContainer)
+        container1.appendChild(title)
+        container2.appendChild(date)
+        container2.appendChild(iconSvg)
+        container2.appendChild(iconSvg2)
+        container2.appendChild(iconSvg3)
+        container2.appendChild(iconSvg4)
 
-        main.appendChild(todosContainer)
+        todosContainer.appendChild(container1)
+        todosContainer.appendChild(container2)
+
+        content.appendChild(todosContainer)
     }) 
+}
+
+function deleteTodos() {
+    const content = document.querySelector('.content')
+    if(document.body.contains(document.querySelector('.todos-container'))) {
+        while(content.firstChild) {
+            content.removeChild(content.lastChild)
+        }
+    }
+
 }
 
 export {addTodos}

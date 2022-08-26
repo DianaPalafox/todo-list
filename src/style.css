@@ -124,6 +124,12 @@ body {
     height:24px; 
 }
 
+.iconSvg2 {
+    width: 20px;
+    height: 20px; 
+
+}
+
 h3 {
     font-size: 1.2rem;
 }
@@ -297,3 +303,27 @@ input[type='text'] {
     font-size: larger;
 }
 
+.todos-container {
+    border: 1px solid #0e7490; 
+    border-radius: 5px; 
+    width: 55vw;
+    height: 3vh;
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+}
+
+.container1, .container2  {
+    display: flex;
+}
+
+
+#title-todo {
+    padding-left: 5px;
+}
+
+#date-todo {
+    padding-right: 5px;
+}

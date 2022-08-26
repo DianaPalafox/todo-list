@@ -102,6 +102,9 @@ import './style.css'
     const containerTitle = document.createElement('div')
     containerTitle.classList.add('container-title')
 
+    const contentTodos = document.createElement('div')
+    contentTodos.classList.add('content')
+
     inbox.appendChild(iconSvg)
     inbox.appendChild(inboxBtn)
     
@@ -126,6 +129,7 @@ import './style.css'
     sidebar.appendChild(list)
     body.appendChild(sidebar)
     main.appendChild(containerTitle)
+    main.appendChild(contentTodos)
     body.appendChild(main)
     header.appendChild(appearDisappearSidebar)
     header.appendChild(logo)
