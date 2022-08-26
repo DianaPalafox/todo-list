@@ -53,22 +53,6 @@ function changeTitle() {
             deleteTitle(); 
             appendTitle('This week');
         }
-       /* if(e.target.dataset.index === '0') {
-            const dataIndex = e.target.dataset.index 
-            console.log(dataIndex)
-            deleteTitle(); 
-            const name = document.querySelector('[data-index="0"]');
-            const text = name.textContent
-            appendTitle(text);
-        }
-        if(e.target.dataset.index === '1') {
-            const dataIndex = e.target.dataset.index 
-            console.log(dataIndex)
-            deleteTitle(); 
-            const name = document.querySelector('[data-index="1"]');
-            const text = name.textContent
-            appendTitle(text);
-        }*/
     }); 
 
 }
@@ -76,11 +60,15 @@ function changeTitle() {
 function closeSpan() {
     document.addEventListener('click', function(e) {
         if(e.target.id === 'close') {
-            const main = document.querySelector('.main')
-            const form = document.querySelector('#form')
-            main.removeChild(form)
+            removeForm(); 
         }
     });
+}
+
+function removeForm() {
+    const main = document.querySelector('.main')
+    const form = document.querySelector('#form')
+    main.removeChild(form)
 }
 
 function closeButton() {
@@ -97,35 +85,6 @@ function removeProjectForm() {
     projectDiv.removeChild(formProject) 
 }
 
-/*function addButton() {
-    document.addEventListener('click', function(e) {
-        if(e.target.id === 'add') {
-            checkForProjectName(); 
-        }
-    });    
-}*/
-
-/*function checkForProjectName() {
-    let name = document.querySelector('#name').value; 
-    if(name === '') {
-        alert('The project name must be filled out')
-    }
-    else {
-        addProject()
-        removeProjectForm() 
-    }
-}
-
-function deleteProject() {
-    document.addEventListener('click', function(e) {
-        if(e.target.id === 'delete') {
-            const projectDiv = document.querySelector('.projects')
-            const projectNameDiv = document.querySelector('#project-name-div')
-            projectDiv.removeChild(projectNameDiv)
-        }
-
-    });
-}*/
 
 
-export {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, removeProjectForm, deleteTitle /*addButton, deleteProject*/}
+export {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton, removeProjectForm, deleteTitle, removeForm }

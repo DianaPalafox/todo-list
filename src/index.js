@@ -1,6 +1,7 @@
 import { initialPage, addTaskButton, appendTitle } from "./initial-page";
-import {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton /*addButton, deleteProject*/} from "./events"
-import { addButton} from "./projects"
+import {projectButton, addFormButton, sidebarButton, changeTitle, closeSpan, closeButton } from "./events"
+import { addButton } from "./projects"
+import {addTodos} from "./todos"
 
 
 initialPage(); 
@@ -13,5 +14,4 @@ projectButton();
 closeSpan(); 
 closeButton(); 
 addButton(); 
-//addProject();
-//changeProject
+addTodos(); 
