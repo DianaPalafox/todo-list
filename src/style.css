@@ -127,7 +127,7 @@ body {
 .iconSvg2 {
     width: 20px;
     height: 20px; 
-
+    cursor: pointer;
 }
 
 h3 {

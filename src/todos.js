@@ -106,7 +106,7 @@ function displayTodos() {
 
         const iconSvg4 =  document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         iconSvg4.classList.add('iconSvg2')
-        iconSvg4.setAttribute('id', 'priority-flag')
+        iconSvg4.setAttribute('id', 'delete')
         const iconPath4 = document.createElementNS('http://www.w3.org/2000/svg','path');
 
         iconSvg4.setAttribute('viewBox', '0 0 24 24');
@@ -130,6 +130,14 @@ function displayTodos() {
         todosContainer.appendChild(container2)
 
         content.appendChild(todosContainer)
+
+        function removeTodo() {
+            iconSvg4.addEventListener('click', function() {
+                myTodos.splice(`${i}`, 1);
+                content.removeChild(todosContainer)
+            })
+        }
+        removeTodo(); 
     }) 
 }
 

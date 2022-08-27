@@ -69,7 +69,7 @@ function addProject() {
         deleteProject.setAttribute('id', 'delete')
 
         function deleteBtn() {
-            deleteProject.addEventListener('click', function(e) {
+            deleteProject.addEventListener('click', function() {
                     myProjects.splice(`${i}`, 1);
                     projectContainer.removeChild(projectNameDiv)
                 });
