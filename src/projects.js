@@ -54,7 +54,7 @@ function addProject() {
         projectName.textContent = `${project.name}`
 
         function changeProject() {
-            projectNameDiv.addEventListener('click', function(e) {
+            projectNameDiv.addEventListener('click', function() {
                     deleteTitle(); 
                     const name = `${project.name}`; 
                     appendTitle(name);

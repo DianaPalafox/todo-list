@@ -59,9 +59,7 @@ function displayTodos() {
 
         const checkboxInput =  document.createElement('input')
         checkboxInput.setAttribute('type', 'checkbox')
-
-        const checkmark = document.createElement('span')
-        checkmark.classList.add('checkmark')
+        checkboxInput.classList.add('checkmark')
 
         const title = document.createElement('div')
         title.setAttribute('id', 'title-todo')
@@ -100,7 +98,6 @@ function displayTodos() {
         const iconPath3 = document.createElementNS('http://www.w3.org/2000/svg','path');
 
         iconSvg3.setAttribute('viewBox', '0 0 24 24');
-        iconSvg3.setAttribute('fill', '#0284c7');
         iconPath3.setAttribute('d', 'M6,3A1,1 0 0,1 7,4V4.88C8.06,4.44 9.5,4 11,4C14,4 14,6 16,6C19,6 20,4 20,4V12C20,12 19,14 16,14C13,14 13,12 11,12C8,12 7,14 7,14V21H5V4A1,1 0 0,1 6,3Z');
         iconSvg3.appendChild(iconPath3);
 
@@ -116,7 +113,6 @@ function displayTodos() {
         
         checkboxContainer.appendChild(checkboxLabel)
         checkboxContainer.appendChild(checkboxInput)
-        checkboxContainer.appendChild(checkmark)
 
         container1.appendChild(checkboxContainer)
         container1.appendChild(title)
@@ -138,8 +134,37 @@ function displayTodos() {
             })
         }
         removeTodo(); 
+
+        function strikeTitle() {
+            checkboxInput.addEventListener('click', function() {
+                if(checkboxInput.checked){
+                    title.style.setProperty('text-decoration', 'line-through');
+                }
+                else {
+                    title.style.textDecoration = 'none'
+                }
+            }) 
+        }
+        strikeTitle()
+
+        function flagPriority() {
+            if(`${todo.priority}` === 'Low') {
+                iconSvg3.setAttribute('fill', '#16a34a');
+            }
+            if(`${todo.priority}` === 'Medium') {
+                iconSvg3.setAttribute('fill', '#fef08a');
+            }
+            if(`${todo.priority}` === 'High') {
+                iconSvg3.setAttribute('fill', '#e11d48');
+            }           
+        }
+        flagPriority();
+
+        
     }) 
 }
+
+
 
 function deleteTodos() {
     const content = document.querySelector('.content')
@@ -148,7 +173,6 @@ function deleteTodos() {
             content.removeChild(content.lastChild)
         }
     }
-
 }
 
 export {addTodos}
