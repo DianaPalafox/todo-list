@@ -1,5 +1,6 @@
 import './style.css'
 import {removeForm} from './events'
+import {addForm} from './initial-page'
 
 
 let myTodos = []
@@ -35,9 +36,7 @@ function getInfo() {
     let priority = select.options[select.selectedIndex].value;
 
     let newTodo = new Todo(title, description, date, priority)
-    myTodos.push(newTodo)
-    console.log(myTodos)
-    
+    myTodos.push(newTodo)   
 }
 
 function displayTodos() {
@@ -86,7 +85,7 @@ function displayTodos() {
         iconSvg2.classList.add('iconSvg2')
         iconSvg2.setAttribute('id', 'expanse')
         const iconPath2 = document.createElementNS('http://www.w3.org/2000/svg','path');
-
+        iconPath2.classList.add('iconPath2')
         iconSvg2.setAttribute('viewBox', '0 0 24 24');
         iconSvg2.setAttribute('fill', '#0284c7');
         iconPath2.setAttribute('d', 'M12,17L7,12H10V8H14V12H17L12,17M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z');
@@ -118,9 +117,9 @@ function displayTodos() {
         container1.appendChild(title)
         container2.appendChild(date)
         container2.appendChild(iconSvg)
-        container2.appendChild(iconSvg2)
         container2.appendChild(iconSvg3)
-        container2.appendChild(iconSvg4)
+        container2.appendChild(iconSvg4) 
+        container2.appendChild(iconSvg2)
 
         todosContainer.appendChild(container1)
         todosContainer.appendChild(container2)
@@ -159,6 +158,50 @@ function displayTodos() {
             }           
         }
         flagPriority();
+
+        function expand() {
+            iconSvg2.addEventListener('click', function(e) {           
+                if(document.querySelector('.description-container') === null) {
+                    iconSvg2.setAttribute('id', 'expand')
+                    iconPath2.setAttribute('d', 'M12,7L17,12H14V16H10V12H7L12,7M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z');
+                    iconSvg2.appendChild(iconPath2);
+
+                    todosContainer.setAttribute('id', 'todos-container')
+                    todosContainer.style.height = "9vh"; 
+
+                    const descriptionContainer = document.createElement('div')
+                    descriptionContainer.classList.add('description-container')
+              
+                    descriptionContainer.textContent = `${todo.description}`
+                
+                    container2.appendChild(iconSvg2)
+                    todosContainer.appendChild(descriptionContainer)
+                    
+
+                }   
+                else if(e.target.id === 'expand' && document.querySelector('.description-container') !== null) {
+                    iconSvg2.setAttribute('id', 'expanse')
+                    iconPath2.setAttribute('d', 'M12,17L7,12H10V8H14V12H17L12,17M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z');
+                    iconSvg2.appendChild(iconPath2);
+                    
+                    const descriptionContainer = document.querySelector('.description-container')
+                    descriptionContainer.remove()
+                    todosContainer.style.height = "3vh"; 
+                    
+                    container2.appendChild(iconSvg2)
+                    todosContainer.appendChild(container2)      
+                } 
+            })            
+        }
+        expand(); 
+
+        function editButton() {
+            iconSvg.addEventListener('click', function() {
+                addForm();
+             
+            })
+        }
+        editButton();
 
         
     }) 

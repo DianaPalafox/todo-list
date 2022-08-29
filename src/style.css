@@ -309,8 +309,8 @@ input[type='text'] {
     width: 55vw;
     height: 3vh;
     display:flex; 
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
     margin: 20px auto 0 auto;
     padding: 10px;
 }
@@ -319,6 +319,9 @@ input[type='text'] {
     display: flex;
 }
 
+.container2 {
+    justify-self: end;
+}
 
 #title-todo {
     padding-left: 5px;
@@ -326,4 +329,10 @@ input[type='text'] {
 
 #date-todo {
     padding-right: 5px;
+}
+
+#todos-container {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }

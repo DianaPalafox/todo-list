@@ -5,17 +5,18 @@ import {addForm, projectForm, appendTitle} from './initial-page';
 function addFormButton() {
     const addTask = document.querySelector('.add-task')
     addTask.addEventListener('click', () => {
-        if(document.querySelector('#form') === null)
-        addForm(); 
+        if(document.querySelector('#form') === null) {
+            addForm(); 
+        }       
     })
 }
 
 function projectButton() {
     const project = document.querySelector('#project')
     project.addEventListener('click', () => {
-        if(document.querySelector('#form-project') === null)
-        projectForm(); 
-
+        if(document.querySelector('#form-project') === null) {
+            projectForm(); 
+        }      
     });
 }
 
