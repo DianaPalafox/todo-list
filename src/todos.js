@@ -1,5 +1,4 @@
 import './style.css'
-import {removeForm} from './events'
 
 export const todos = () => {
     let myTodos = []
@@ -16,11 +15,10 @@ export const todos = () => {
     const addTodos = (() => { 
         document.addEventListener('click', function(e) {
             if(e.target.id === 'submit') {
-                console.log('works')
-                getInfo(); 
-                removeForm();  
-                deleteTodos(); 
-                displayTodos();  
+                    document.getElementById('form').style.display = 'none';
+                    getInfo(); 
+                    deleteTodos(); 
+                    displayTodos();        
             }
         });          
     })(); 
@@ -37,6 +35,7 @@ export const todos = () => {
 
         let newTodo = new Todo(title, description, date, priority)
         myTodos.push(newTodo)   
+        console.log(myTodos)
     }
 
     function displayTodos() {

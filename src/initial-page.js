@@ -1,7 +1,7 @@
 import './style.css'
 //import {deleteTodos} from './todos'
 
-export const dom_content = () => {
+export const domContent = () => {
     const initialPage = (() => {
         const content = document.querySelector('#content')
         const container = document.createElement('div')
@@ -159,7 +159,7 @@ export const dom_content = () => {
         
         const form = document.createElement('form')
         form.setAttribute('id', 'form')
-    
+        
         const close = document.createElement('span')
         close.setAttribute('id', 'close')
         close.textContent = 'X'

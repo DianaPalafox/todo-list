@@ -1,15 +1,19 @@
 import './style.css'
 import { projectForm, addForm, appendTitle } from './initial-page';
+import { thisWeek, today, inbox } from './dates';
 
-
-export const dom_events = () => {
+export const domEvents = () => {
     appendTitle('Inbox')
     const addFormButton = (() => {
         const addTask = document.querySelector('.add-task')
         addTask.addEventListener('click', () => {
             if(document.querySelector('#form') === null) {
-                addForm(); 
-            }       
+                addForm();  
+            }
+            else if(document.querySelector('#form').style.display === 'none') {
+                document.querySelector('#form').style.display = 'block'
+            }
+               
         })
     })();
     
@@ -40,14 +44,17 @@ export const dom_events = () => {
             if(e.target.id === 'inbox') {
                 deleteTitle(); 
                 appendTitle('Inbox');
+                inbox(); 
             }
             if(e.target.id === 'today') {
                 deleteTitle(); 
                 appendTitle('Today');
+                today(); 
             }
             if(e.target.id === 'week') {
                 deleteTitle(); 
                 appendTitle('This week');
+                thisWeek(); 
             }
         }); 
     
@@ -95,4 +102,4 @@ const removeForm = () => {
     }   
 };
 
-export {removeForm, removeProjectForm, deleteTitle}
+export { removeProjectForm, deleteTitle }
