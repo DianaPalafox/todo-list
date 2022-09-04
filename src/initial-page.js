@@ -1,5 +1,5 @@
 import './style.css'
-//import {deleteTodos} from './todos'
+
 
 export const domContent = () => {
     const initialPage = (() => {
@@ -226,6 +226,19 @@ export const domContent = () => {
     
         const option3 = document.createElement('option')
         option3.textContent = 'High'
+        
+        const selectProjectDiv = document.createElement('div')
+        selectProjectDiv.classList.add('select-project')
+
+        const selectProjectLabel = document.createElement('label')
+        selectProjectLabel.htmlFor = 'project'
+        selectProjectLabel.textContent = 'PROJECT: '
+
+        const selectProject = document.createElement("select")
+        selectProject.setAttribute('id', 'select-project')
+
+        const optionProject = document.createElement('option')
+        optionProject.textContent = 'Inbox'
     
         const formButtonDiv = document.createElement('div')
         formButtonDiv.classList.add('form-button')
@@ -240,9 +253,14 @@ export const domContent = () => {
         selectPriority.appendChild(option1)
         selectPriority.appendChild(option2)
         selectPriority.appendChild(option3)
+
+        selectProject.appendChild(optionProject)
     
         selectPriorityDiv.appendChild(selectPriorityLabel)
         selectPriorityDiv.appendChild(selectPriority)
+
+        selectProjectDiv.appendChild(selectProjectLabel)
+        selectProjectDiv.appendChild(selectProject)
     
         dueDateDiv.appendChild(dueDateLabel)
         dueDateDiv.appendChild(dueDateInput)
@@ -255,6 +273,7 @@ export const domContent = () => {
         
         datePriority.appendChild(dueDateDiv)
         datePriority.appendChild(selectPriorityDiv)
+        datePriority.appendChild(selectProjectDiv)
     
         formDiv.appendChild(taskTitleDiv)
         formDiv.appendChild(descriptionDiv)

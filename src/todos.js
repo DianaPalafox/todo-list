@@ -1,4 +1,5 @@
 import './style.css'
+import { removeForm } from './events'
 
 export const todos = () => {
     let myTodos = []
@@ -9,14 +10,16 @@ export const todos = () => {
             this.description = description 
             this.date = date 
             this.priority = priority
+            this.project = project
         }
     }
 
     const addTodos = (() => { 
         document.addEventListener('click', function(e) {
             if(e.target.id === 'submit') {
-                    document.getElementById('form').style.display = 'none';
+                    //document.getElementById('form').style.display = 'none';
                     getInfo(); 
+                    removeForm();
                     deleteTodos(); 
                     displayTodos();        
             }
@@ -32,10 +35,12 @@ export const todos = () => {
         let date = document.querySelector('#date').value 
         let select = document.querySelector('#select')
         let priority = select.options[select.selectedIndex].value;
+        let selectProject = document.querySelector('#select-project')
+        let project = selectProject.options[select.selectedIndex].value;
 
-        let newTodo = new Todo(title, description, date, priority)
+        let newTodo = new Todo(title, description, date, priority, project)
         myTodos.push(newTodo)   
-        console.log(myTodos)
+        
     }
 
     function displayTodos() {

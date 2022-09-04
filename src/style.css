@@ -250,7 +250,7 @@ h3 {
     flex-wrap: wrap;  
 }
 
-.task-title, .description, .date, .priority {
+.task-title, .description, .date, .priority, .select-project {
     color: white;
     margin: 3px;
     display: flex;

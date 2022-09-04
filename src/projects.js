@@ -33,6 +33,7 @@ export const projects = () => {
         });    
     })(); 
 
+
     const addProject = () => { 
         const projectContainer = document.querySelector('.projects-container')
 
@@ -63,6 +64,7 @@ export const projects = () => {
             projectNameDiv.appendChild(projectName)
             projectNameDiv.appendChild(deleteProject)
             projectContainer.appendChild(projectNameDiv)
+
 
             const changeProject = (() => {
                 projectNameDiv.addEventListener('click', function() {
