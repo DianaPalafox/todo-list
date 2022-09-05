@@ -9,7 +9,6 @@ export const domEvents = () => {
         const addTask = document.querySelector('.add-task')
         addTask.addEventListener('click', () => {
             if(document.querySelector('#form') === null) {
-                console.log('works')
                 addForm();  
                 deleteSelectProject()   
                 addSelectProject()    
@@ -19,7 +18,6 @@ export const domEvents = () => {
 
     const addSelectProject = () => {
         const projectName = document.querySelectorAll('#project-name-btn')
-        console.log(projectName)
         projectName.forEach(name => {
             const datePriority = document.querySelector('.date-priority')
             const selectProjectDiv = document.querySelector('.select-project')
@@ -132,5 +130,7 @@ const removeForm = () => {
         main.removeChild(form)
     }   
 };
+
+
 
 export { removeProjectForm, deleteTitle, removeForm }

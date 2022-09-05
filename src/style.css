@@ -311,22 +311,28 @@ input[type='text'] {
     height: 3vh;
     display:flex; 
     flex-wrap: wrap;
-    justify-content: space-between;
     margin: 20px auto 0 auto;
     padding: 10px;
+
+    display: grid; 
 }
 
 .container1, .container2  {
     display: flex;
+    grid-row-start: 1;
+
 }
 
-.container2 {
+.container2 {  
     justify-self: end;
+    margin-left: auto;
+    margin-bottom: 20px;
 }
 
 #title-todo {
     padding-left: 5px;
 }
+
 
 #date-todo {
     padding-right: 5px;
@@ -336,4 +342,5 @@ input[type='text'] {
     display: grid; 
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+
 }

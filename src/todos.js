@@ -5,7 +5,7 @@ export const todos = () => {
     let myTodos = []
 
     class Todo {
-        constructor(title, description, date, priority) {
+        constructor(title, description, date, priority, project) {
             this.title = title
             this.description = description 
             this.date = date 
@@ -17,7 +17,6 @@ export const todos = () => {
     const addTodos = (() => { 
         document.addEventListener('click', function(e) {
             if(e.target.id === 'submit') {
-                    //document.getElementById('form').style.display = 'none';
                     getInfo(); 
                     removeForm();
                     deleteTodos(); 
@@ -36,10 +35,11 @@ export const todos = () => {
         let select = document.querySelector('#select')
         let priority = select.options[select.selectedIndex].value;
         let selectProject = document.querySelector('#select-project')
-        let project = selectProject.options[select.selectedIndex].value;
+        let project = selectProject.options[selectProject.selectedIndex].value;
 
         let newTodo = new Todo(title, description, date, priority, project)
-        myTodos.push(newTodo)   
+        myTodos.push(newTodo)  
+        console.log(myTodos) 
         
     }
 
@@ -70,6 +70,11 @@ export const todos = () => {
 
             const container2 = document.createElement('div')
             container2.classList.add('container2')
+
+            const project = document.createElement('div')
+            project.setAttribute('id', 'project-todo')
+            project.textContent = `${todo.project}`
+            project.style.visibility = 'hidden'
 
             const date = document.createElement('div')
             date.setAttribute('id', 'date-todo')
@@ -119,6 +124,7 @@ export const todos = () => {
 
             container1.appendChild(checkboxContainer)
             container1.appendChild(title)
+            container2.appendChild(project)
             container2.appendChild(date)
             container2.appendChild(iconSvg)
             container2.appendChild(iconSvg3)

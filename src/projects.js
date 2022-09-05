@@ -2,6 +2,7 @@ import './style.css'
 import {removeProjectForm, deleteTitle} from "./events"
 import {appendTitle} from "./initial-page"
 
+
 export const projects = () => {
     let myProjects = []; 
 
@@ -65,15 +66,26 @@ export const projects = () => {
             projectNameDiv.appendChild(deleteProject)
             projectContainer.appendChild(projectNameDiv)
 
-
             const changeProject = (() => {
                 projectNameDiv.addEventListener('click', function() {
                     deleteTitle(); 
                     const name = `${project.name}`; 
                     appendTitle(name);
+                    organizeProjects()
                 }); 
             })(); 
 
+            const organizeProjects = () => {
+                const projects = document.querySelectorAll('#project-todo')
+                projects.forEach(project => {
+                    project.parentElement.parentElement.style.display = 'flex'
+                    project.parentElement.parentElement.style.display = 'grid'
+                    if(project.textContent !== projectName.textContent) {
+                    project.parentElement.parentElement.style.display = 'none'
+                }
+                })
+            }
+        
             const deleteBtn = (() => { 
                 deleteProject.addEventListener('click', function() {
                         myProjects.splice(`${i}`, 1);
