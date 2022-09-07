@@ -16,40 +16,15 @@ export const todos = () => {
 
     const addTodos = (() => { 
         document.addEventListener('click', function(e) {
-            if(e.target.id === 'submit' ) {
+            if(e.target.id === 'submit' || e.target.id === 'resubmit') {
                 getInfo(); 
                 deleteTodos(); 
                 displayTodos();  
                 inboxElements();   
                 removeForm();    
             }
-            else if(e.target.id === 'resubmit') {
-                getInfo(); 
-                editTodo();
-                deleteTodos(); 
-                displayTodos();  
-                inboxElements();  
-                removeForm();
-            }
         });          
     })(); 
-
-    const editTodo = () => {
-        const title = document.querySelector('#title-todo')
-        title.textContent = document.querySelector('#title').value
-        
-        if(document.querySelector('.description-container') !== null){
-            const description = document.querySelector('.description-container')
-            description.textContent = document.querySelector('#description').value
-        }
-        
-        const date = document.querySelector('#date-todo')
-        date.textContent = document.querySelector('#date').value 
-        //const priority = document.querySelector('#priority-flag')
-        const project = document.querySelector('#project-todo')
-        const selectProject = document.querySelector('#select-project')
-        project.textContent = selectProject.options[selectProject.selectedIndex].value;
-    }
 
 
     function getInfo() {
@@ -193,14 +168,12 @@ export const todos = () => {
                     const submit = document.querySelector('#submit')
                     submit.setAttribute('id', 'resubmit')
                     myTodos.splice(`${i}`, 1);
-                    console.log(myTodos)
                     
                 }
                 else if(document.querySelector('#resubmit') !== null){
                     const resubmit = document.querySelector('#resubmit')
                     resubmit.setAttribute('id', 'resubmit')
                     myTodos.splice(`${i}`, 1);
-                    console.log(myTodos)
 
                 }
             }

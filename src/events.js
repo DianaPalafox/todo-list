@@ -147,8 +147,6 @@ const removeForm = () => {
        let selectProject = document.querySelector('#select-project')
        selectProject.value = 'Inbox'
        document.querySelector('#form').style.display = 'none'
-        /*const main = document.querySelector('.main')
-        main.removeChild(form)*/
 
     }   
 };
