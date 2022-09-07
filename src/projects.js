@@ -67,9 +67,10 @@ export const projects = () => {
             projectContainer.appendChild(projectNameDiv)
 
             const changeProject = (() => {
-                projectNameDiv.addEventListener('click', function() {
+                projectName.addEventListener('click', function() {
                     deleteTitle(); 
                     const name = `${project.name}`; 
+                    document.querySelector('.add-task').style.display = 'block'
                     appendTitle(name);
                     organizeProjects()
                 }); 
@@ -78,23 +79,25 @@ export const projects = () => {
             const organizeProjects = () => {
                 const projects = document.querySelectorAll('#project-todo')
                 projects.forEach(project => {
-                    project.parentElement.parentElement.style.display = 'flex'
                     project.parentElement.parentElement.style.display = 'grid'
                     if(project.textContent !== projectName.textContent) {
                     project.parentElement.parentElement.style.display = 'none'
                 }
                 })
-            }
-        
+            }    
+
             const deleteBtn = (() => { 
                 deleteProject.addEventListener('click', function() {
                         myProjects.splice(`${i}`, 1);
                         projectContainer.removeChild(projectNameDiv)
+                        deleteTitle()
+                        appendTitle('Inbox')
                     });
             })(); 
 
     })
 };
+    
 
     function deleteProject() {
         const projectContainer = document.querySelector('.projects-container')

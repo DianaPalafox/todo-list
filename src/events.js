@@ -8,13 +8,26 @@ export const domEvents = () => {
     const addFormButton = (() => {
         const addTask = document.querySelector('.add-task')
         addTask.addEventListener('click', () => {
-            if(document.querySelector('#form') === null) {
+            if(document.querySelector('#form') === null ) {
                 addForm();  
                 deleteSelectProject()   
                 addSelectProject()    
-            }         
+            }  
+            else if(document.querySelector('#form').style.display === 'none') {
+                document.querySelector('#form').style.display = 'block'
+                changeResubmitId()
+                deleteSelectProject()   
+                addSelectProject()   
+            }
         })
     })();
+
+    const changeResubmitId = () => {
+        if(document.querySelector('#resubmit') !== null ){
+            const resubmit = document.querySelector('#resubmit')
+            resubmit.setAttribute('id', 'submit')
+        }
+    }
 
     const addSelectProject = () => {
         const projectName = document.querySelectorAll('#project-name-btn')
@@ -124,13 +137,33 @@ const removeProjectForm = () => {
 };
 
 const removeForm = () => {
-    if(document.querySelector('#form') !== null) {
-        const main = document.querySelector('.main')
-        const form = document.querySelector('#form')
-        main.removeChild(form)
+   if(document.querySelector('#form') !== null) {
+       let inputs = document.querySelectorAll('input')
+       inputs.forEach(input => input.value = '')
+       let textarea = document.querySelector('textarea')
+       textarea.value = ''
+       let selectPriority = document.querySelector('#select')
+       selectPriority.value = 'Low'
+       let selectProject = document.querySelector('#select-project')
+       selectProject.value = 'Inbox'
+       document.querySelector('#form').style.display = 'none'
+        /*const main = document.querySelector('.main')
+        main.removeChild(form)*/
+
     }   
 };
 
+const inboxElements = () => {
+    const projects = document.querySelectorAll('#project-todo')
+    projects.forEach(project => {
+        if(project.textContent === 'Inbox' && document.querySelector('.title').textContent !== 'Inbox') {
+            project.parentElement.parentElement.style.display = 'none'
+        }
+        else {
+            project.parentElement.parentElement.style.display = 'grid'
+        }
+    })
+}
 
 
-export { removeProjectForm, deleteTitle, removeForm }
+export { removeProjectForm, deleteTitle, removeForm, inboxElements }

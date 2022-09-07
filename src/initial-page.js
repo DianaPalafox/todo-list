@@ -1,6 +1,5 @@
 import './style.css'
 
-
 export const domContent = () => {
     const initialPage = (() => {
         const content = document.querySelector('#content')
@@ -159,7 +158,7 @@ export const domContent = () => {
         
         const form = document.createElement('form')
         form.setAttribute('id', 'form')
-        
+        form.style.display = 'block'
         const close = document.createElement('span')
         close.setAttribute('id', 'close')
         close.textContent = 'X'

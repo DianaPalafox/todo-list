@@ -102,6 +102,10 @@ body {
     width: 200px;
 }
 
+#project-name-div:hover{
+    background-color: #dbeafe;
+}
+
 #inbox, #today, #week, .add-project, .add-project-btn, #project-name-btn{
     border-radius: 10px;
     border-style: none;
@@ -112,7 +116,6 @@ body {
     width: 220px;
     height: 35px;
 }
-
 
 #inbox:hover, #today:hover, #week:hover, .add-project-btn:hover, #project-name-btn:hover {
     background-color: #dbeafe;
@@ -304,6 +307,10 @@ input[type='text'] {
     font-size: larger;
 }
 
+.delete:hover {
+    color: black;
+}
+
 .todos-container {
     border: 1px solid #0e7490; 
     border-radius: 5px; 
@@ -320,13 +327,11 @@ input[type='text'] {
 .container1, .container2  {
     display: flex;
     grid-row-start: 1;
-
 }
 
 .container2 {  
     justify-self: end;
     margin-left: auto;
-    margin-bottom: 20px;
 }
 
 #title-todo {

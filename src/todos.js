@@ -1,5 +1,5 @@
 import './style.css'
-import { removeForm } from './events'
+import { removeForm, inboxElements } from './events'
 
 export const todos = () => {
     let myTodos = []
@@ -16,14 +16,41 @@ export const todos = () => {
 
     const addTodos = (() => { 
         document.addEventListener('click', function(e) {
-            if(e.target.id === 'submit') {
-                    getInfo(); 
-                    removeForm();
-                    deleteTodos(); 
-                    displayTodos();        
+            if(e.target.id === 'submit' ) {
+                getInfo(); 
+                deleteTodos(); 
+                displayTodos();  
+                inboxElements();   
+                removeForm();    
+            }
+            else if(e.target.id === 'resubmit') {
+                getInfo(); 
+                editTodo();
+                deleteTodos(); 
+                displayTodos();  
+                inboxElements();  
+                removeForm();
             }
         });          
     })(); 
+
+    const editTodo = () => {
+        const title = document.querySelector('#title-todo')
+        title.textContent = document.querySelector('#title').value
+        
+        if(document.querySelector('.description-container') !== null){
+            const description = document.querySelector('.description-container')
+            description.textContent = document.querySelector('#description').value
+        }
+        
+        const date = document.querySelector('#date-todo')
+        date.textContent = document.querySelector('#date').value 
+        //const priority = document.querySelector('#priority-flag')
+        const project = document.querySelector('#project-todo')
+        const selectProject = document.querySelector('#select-project')
+        project.textContent = selectProject.options[selectProject.selectedIndex].value;
+    }
+
 
     function getInfo() {
         let title = document.querySelector('#title').value
@@ -39,7 +66,7 @@ export const todos = () => {
 
         let newTodo = new Todo(title, description, date, priority, project)
         myTodos.push(newTodo)  
-        console.log(myTodos) 
+        console.log(myTodos)
         
     }
 
@@ -142,6 +169,41 @@ export const todos = () => {
                     content.removeChild(todosContainer)
                 })
             })(); 
+
+            const editButton = (() => {
+                iconSvg.addEventListener('click', function() {
+                    let titleInput = document.querySelector('#title')
+                    titleInput.value = `${todo.title}`
+                    let dateInput = document.querySelector('#date')
+                    dateInput.value = `${todo.date}`
+                    let textarea = document.querySelector('textarea')
+                    textarea.value = `${todo.description}`
+                    let selectPriority = document.querySelector('#select')
+                    selectPriority.value = `${todo.priority}`
+                    let selectProject = document.querySelector('#select-project')
+                    selectProject.value = `${todo.project}`
+                    document.querySelector('#form').style.display = 'block'
+            
+                    resubmitButton()
+                })
+            })(); 
+
+            const resubmitButton = () => {
+                if(document.querySelector('#submit') !== null ){
+                    const submit = document.querySelector('#submit')
+                    submit.setAttribute('id', 'resubmit')
+                    myTodos.splice(`${i}`, 1);
+                    console.log(myTodos)
+                    
+                }
+                else if(document.querySelector('#resubmit') !== null){
+                    const resubmit = document.querySelector('#resubmit')
+                    resubmit.setAttribute('id', 'resubmit')
+                    myTodos.splice(`${i}`, 1);
+                    console.log(myTodos)
+
+                }
+            }
 
             const strikeTitle = (() => { 
                 checkboxInput.addEventListener('click', function() {
