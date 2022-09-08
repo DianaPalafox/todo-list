@@ -152,7 +152,7 @@ export const domContent = () => {
         main.appendChild(addTask)
     })();    
 }
-
+    
     const addForm = () => {
         const main = document.querySelector('.main')
         
@@ -285,6 +285,7 @@ export const domContent = () => {
         main.appendChild(form)
 
     };
+   
         
     const projectForm = () => {
         const projectDiv = document.querySelector('.projects')

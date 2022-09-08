@@ -225,7 +225,7 @@ h3 {
 }
 
 #form{
-    display: block; 
+    display: none; 
     position: absolute;
     z-index: 1;
     top: 50%;

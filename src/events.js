@@ -10,6 +10,8 @@ export const domEvents = () => {
         addTask.addEventListener('click', () => {
             if(document.querySelector('#form') === null ) {
                 addForm();  
+                //document.querySelector('#form').style.display = 'block'
+                //changeResubmitId()
                 deleteSelectProject()   
                 addSelectProject()    
             }  
